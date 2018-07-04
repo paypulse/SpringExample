@@ -1,0 +1,24 @@
+package com.javalec.ex;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		/*No DI 예제*/
+		NODIEx diex = new NODIEx();
+		diex.setE_name("홍길동");
+		diex.setE_email("test@test.com");
+		diex.setE_number(0102320123);
+		diex.setE_departmentN(024);
+		
+		diex.nameP();
+		diex.emailP();
+		diex.numberP();
+		diex.departmentP();
+		
+		/*DI 예제*/
+		
+		
+	}
+
+}

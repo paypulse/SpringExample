@@ -1,0 +1,34 @@
+package com.javalec.ex;
+
+public class DIEx {
+	private String e_name;
+	private int e_number;
+	private String e_email;
+	private int e_department;
+	public String getE_name() {
+		return e_name;
+	}
+	public void setE_name(String e_name) {
+		this.e_name = e_name;
+	}
+	public int getE_number() {
+		return e_number;
+	}
+	public void setE_number(int e_number) {
+		this.e_number = e_number;
+	}
+	public String getE_email() {
+		return e_email;
+	}
+	public void setE_email(String e_email) {
+		this.e_email = e_email;
+	}
+	public int getE_department() {
+		return e_department;
+	}
+	public void setE_department(int e_department) {
+		this.e_department = e_department;
+	}
+
+
+};

@@ -1,0 +1,6 @@
+package first;
+
+public class Snippet {
+	(TO_CHAR(TO_DATE((:E_DAY),'YYYYMMDD'),'DD') - TO_CHAR(TO_DATE((:S_DAY),'YYYYMMDD'),'DD' ) )+1
+}
+

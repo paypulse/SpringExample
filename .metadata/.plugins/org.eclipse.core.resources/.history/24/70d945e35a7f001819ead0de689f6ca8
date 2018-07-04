@@ -1,0 +1,9 @@
+package com.javalec.ex;
+
+public class MyCats {
+	Cats cats;
+	
+	private String firstCatName;
+	private int firstCatAge;
+	
+}

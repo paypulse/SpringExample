@@ -1,0 +1,26 @@
+package com.javalec.ex;
+
+public class DIExP {
+	DIEx diex;
+	
+	public void nameP(String nameP) {
+		System.out.println(nameP);
+		diex.setE_name(nameP);
+	}
+	
+	public void numberP(int numberP) {
+		System.out.println(numberP);
+		
+	}
+	
+	public void emailP(String emailP)
+	{
+		System.out.println(emailP);
+	}
+	
+	public void departmentP(int departmnetP) {
+		System.out.println(departmnetP);
+	}
+	
+
+}
