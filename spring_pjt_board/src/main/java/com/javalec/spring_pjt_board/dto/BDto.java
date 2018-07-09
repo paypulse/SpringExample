@@ -1,6 +1,7 @@
 package com.javalec.spring_pjt_board.dto;
 
-import java.security.Timestamp;
+
+import java.sql.Timestamp;
 
 public class BDto {
 	int bId;
@@ -35,14 +36,7 @@ public class BDto {
 	}
 	
 	
-	public String getBcontent() {
-		return bcontent;
-	}
-
-	public void setBcontent(String bcontent) {
-		this.bcontent = bcontent;
-	}
-
+	
 	public int getbId() {
 		return bId;
 	}

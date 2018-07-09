@@ -34,10 +34,10 @@
     	maxActive="50"
     	maxWait="1000"
     	name="jdbc/Oracle11g"
-    	password="tiger"
+    	password="1234"
     	type="javax.sql.DataSource"
     	url="jdbc:oracle:thin:@localhost:1521:xe"
-    	username="smj"/>
+    	username="wisedb"/>
     
     
 

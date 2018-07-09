@@ -126,7 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="SFirst" path="/sfirst" reloadable="true" source="org.eclipse.jst.jee.server:SFirst"/><Context docBase="OracleConnectEx" path="/oracle" reloadable="true" source="org.eclipse.jst.jee.server:OracleConnectEx"/><Context docBase="spring_11_2_ex1_springex" path="/ex" reloadable="true" source="org.eclipse.jst.jee.server:spring_11_2_ex1_springex"/></Host>
+      <Context docBase="SFirst" path="/sfirst" reloadable="true" source="org.eclipse.jst.jee.server:SFirst"/><Context docBase="OracleConnectEx" path="/oracle" reloadable="true" source="org.eclipse.jst.jee.server:OracleConnectEx"/><Context docBase="spring_11_2_ex1_springex" path="/ex" reloadable="true" source="org.eclipse.jst.jee.server:spring_11_2_ex1_springex"/><Context docBase="spring_pjt_board" path="/spring_pjt_board" reloadable="true" source="org.eclipse.jst.jee.server:spring_pjt_board"/><Context docBase="GoogleChart" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:GoogleChart"/></Host>
     </Engine>
   </Service>
 </Server>

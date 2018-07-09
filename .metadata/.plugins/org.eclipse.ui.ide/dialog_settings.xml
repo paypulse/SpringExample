@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\download\신입SW인력을_위한_실전_자바(Java)_스프링(Spring)_동영상과정_제11강_21강_예제\springMVCBoard"/>
+	</list>
 	<section name="CleanDialogSettings">
 		<item value="581" key="DIALOG_WIDTH"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
