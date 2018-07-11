@@ -1,7 +1,0 @@
-#Tomcat publish data
-#Mon Jul 09 12:50:17 KST 2018
-org.eclipse.jst.jee.server\:OracleConnectEx=D\:\\apache-tomcat-7.0.88\\wtpwebapps\\OracleConnectEx
-org.eclipse.jst.jee.server\:spring_11_2_ex1_springex=D\:\\apache-tomcat-7.0.88\\wtpwebapps\\spring_11_2_ex1_springex
-org.eclipse.jst.jee.server\:SFirst=D\:\\apache-tomcat-7.0.88\\wtpwebapps\\SFirst
-org.eclipse.jst.jee.server\:GoogleChart=D\:\\apache-tomcat-7.0.88\\wtpwebapps\\GoogleChart
-org.eclipse.jst.jee.server\:spring_pjt_board=D\:\\apache-tomcat-7.0.88\\wtpwebapps\\spring_pjt_board

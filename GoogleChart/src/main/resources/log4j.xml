@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.oraclelec.board">
+	<logger name="com.test.mybatis">
 		<level value="info" />
 	</logger>
 	
