@@ -16,6 +16,8 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\SpringExample\MybatisExample"/>
+			<item value="D:\download\신입SW인력을_위한_실전_자바(Java)_스프링(Spring)_동영상과정_제22강_30강_예제.zip\spring_30_1_ex1_springex"/>
 			<item value="D:\download\신입SW인력을_위한_실전_자바(Java)_스프링(Spring)_동영상과정_제11강_21강_예제\spring_21_1_ex1_srpingex"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
