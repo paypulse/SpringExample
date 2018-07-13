@@ -126,7 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="spring_21_1_ex1_srpingex" path="/springMVCBoard" reloadable="true" source="org.eclipse.jst.jee.server:spring_21_1_ex1_srpingex"/><Context docBase="MyBatisExample" path="/example" reloadable="true" source="org.eclipse.jst.jee.server:MyBatisExample"/><Context docBase="MybatisExample" path="/MybatisExample" reloadable="true" source="org.eclipse.jst.jee.server:MybatisExample"/><Context docBase="MyBatisExercise" path="/mybatis" reloadable="true" source="org.eclipse.jst.jee.server:MyBatisExercise"/><Context docBase="ServerConnectionTest" path="/ServerConnectionTest" reloadable="true" source="org.eclipse.jst.jee.server:ServerConnectionTest"/><Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/><Context docBase="spring_30_1_ex1_springex" path="/spring_mybatis3" reloadable="true" source="org.eclipse.jst.jee.server:spring_30_1_ex1_springex"/></Host>
+      <Context docBase="csswithspring" path="/example" reloadable="true" source="org.eclipse.jst.jee.server:csswithspring"/><Context docBase="spring_30_1_ex1_springex" path="/spring_mybatis3" reloadable="true" source="org.eclipse.jst.jee.server:spring_30_1_ex1_springex"/></Host>
     </Engine>
   </Service>
 </Server>
