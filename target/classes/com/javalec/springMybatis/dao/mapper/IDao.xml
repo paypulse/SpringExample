@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javalec.springMybatis.dao.IDao">
+
+		<select id="optionChartDao" resultType="com.javalec.springMybatis.dto.ChartDto">
+<![CDATA[ 
+		SELECT NM,REGION_AREA
+        ,DECODE(COL0,GREATE,COL0||'('||ROUND(COL0/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL0||'('||ROUND(COL0/TOT,4) * 100||'%'||')'||' ▼' ,COL0 || '('||ROUND(COL0/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL0_RK,MX_RK)) COL0
+        ,DECODE(COL1,GREATE,COL1||'('||ROUND(COL1/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL1||'('||ROUND(COL1/TOT,4) * 100||'%'||')'||' ▼' ,COL1 || '('||ROUND(COL1/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL1_RK,MX_RK)) COL1
+        ,DECODE(COL2,GREATE,COL2||'('||ROUND(COL2/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL2||'('||ROUND(COL2/TOT,4) * 100||'%'||')'||' ▼' ,COL2 || '('||ROUND(COL2/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL2_RK,MX_RK)) COL2
+        ,DECODE(COL3,GREATE,COL3||'('||ROUND(COL3/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL3||'('||ROUND(COL3/TOT,4) * 100||'%'||')'||' ▼' ,COL3 || '('||ROUND(COL3/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL3_RK,MX_RK)) COL3
+        ,DECODE(COL4,GREATE,COL4||'('||ROUND(COL4/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL4||'('||ROUND(COL4/TOT,4) * 100||'%'||')'||' ▼' ,COL4 || '('||ROUND(COL4/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL4_RK,MX_RK)) COL4
+        ,DECODE(COL5,GREATE,COL5||'('||ROUND(COL5/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL5||'('||ROUND(COL5/TOT,4) * 100||'%'||')'||' ▼' ,COL5 || '('||ROUND(COL5/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL5_RK,MX_RK)) COL5
+        ,DECODE(COL6,GREATE,COL6||'('||ROUND(COL6/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL6||'('||ROUND(COL6/TOT,4) * 100||'%'||')'||' ▼' ,COL6 || '('||ROUND(COL6/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL6_RK,MX_RK)) COL6
+        ,DECODE(COL7,GREATE,COL7||'('||ROUND(COL7/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL7||'('||ROUND(COL7/TOT,4) * 100||'%'||')'||' ▼' ,COL7 || '('||ROUND(COL7/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL7_RK,MX_RK)) COL7
+        ,DECODE(COL8,GREATE,COL8||'('||ROUND(COL8/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL8||'('||ROUND(COL8/TOT,4) * 100||'%'||')'||' ▼' ,COL8 || '('||ROUND(COL8/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL8_RK,MX_RK)) COL8 
+        ,DECODE(COL9,GREATE,COL9||'('||ROUND(COL9/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL9||'('||ROUND(COL9/TOT,4) * 100||'%'||')'||' ▼' ,COL9 || '('||ROUND(COL9/TOT,4) * 100||'%'||')') ||DECODE(GK,'00','*'|| NVL(COL9_RK,MX_RK)) COL9 
+        ,TOT
+        ,(AREA_CD - AREA_CD +1) * DECODE(AREA_CD,10,(]]>#{param3}<![CDATA[),20,(]]>#{param4}<![CDATA[),30,(]]>#{param5}<![CDATA[),40,(]]>#{param6}<![CDATA[),50,(]]>#{param7}<![CDATA[),60,(]]>#{param8}<![CDATA[),70,(]]>#{param9}<![CDATA[),80,(]]>#{param10}<![CDATA[)) AREA_CD
+FROM(
+SELECT  AREA_CD,
+        DECODE(GROUPING(AREA_CD) || GROUPING(REGION_AREA),'00',MIN(CD_NM),'01',MIN(CD_NM)||'합계','총계') NM
+        ,REGION_AREA
+        ,NVL(SUM(DECODE(PROD_ID,'100000',SALE_CNT)),0) COL0
+        ,NVL(SUM(DECODE(PROD_ID,'100001',SALE_CNT)),0) COL1
+        ,NVL(SUM(DECODE(PROD_ID,'100002',SALE_CNT)),0) COL2
+        ,NVL(SUM(DECODE(PROD_ID,'100003',SALE_CNT)),0) COL3
+        ,NVL(SUM(DECODE(PROD_ID,'100004',SALE_CNT)),0) COL4
+        ,NVL(SUM(DECODE(PROD_ID,'100005',SALE_CNT)),0) COL5
+        ,NVL(SUM(DECODE(PROD_ID,'100006',SALE_CNT)),0) COL6
+        ,NVL(SUM(DECODE(PROD_ID,'100007',SALE_CNT)),0) COL7
+        ,NVL(SUM(DECODE(PROD_ID,'100008',SALE_CNT)),0) COL8
+        ,NVL(SUM(DECODE(PROD_ID,'100009',SALE_CNT)),0) COL9---ROW로된 제품들을 컬럼으로 바꾹 위해서
+        ,SUM(DECODE(PROD_ID,'100000',RK)) COL0_RK
+        ,SUM(DECODE(PROD_ID,'100001',RK)) COL1_RK
+        ,SUM(DECODE(PROD_ID,'100002',RK)) COL2_RK
+        ,SUM(DECODE(PROD_ID,'100003',RK)) COL3_RK
+        ,SUM(DECODE(PROD_ID,'100004',RK)) COL4_RK
+        ,SUM(DECODE(PROD_ID,'100005',RK)) COL5_RK
+        ,SUM(DECODE(PROD_ID,'100006',RK)) COL6_RK
+        ,SUM(DECODE(PROD_ID,'100007',RK)) COL7_RK
+        ,SUM(DECODE(PROD_ID,'100008',RK)) COL8_RK
+        ,SUM(DECODE(PROD_ID,'100009',RK)) COL9_RK
+        ,GROUPING(AREA_CD)||GROUPING(REGION_AREA) GK
+        ,MAX(SALE_CNT) GREATE
+        ,MIN(SALE_CNT) LEAST
+        ,SUM(SALE_CNT) TOT
+        ,MAX(RK)+1 MX_RK
+
+FROM(
+        SELECT AREA_CD
+              ,REGION_AREA
+              ,PROD_ID
+              ,SUM(SALE_CNT) SALE_CNT
+              ,RANK()OVER( PARTITION BY AREA_CD,REGION_AREA ORDER BY SUM(SALE_CNT) DESC) RK
+        FROM SALE_TBL
+        WHERE AREA_CD = NVL(]]>#{param1,jdbcType=VARCHAR}<![CDATA[,AREA_CD) AND  ROWNUM <= ]]>#{param12,jdbcType=VARCHAR}<![CDATA[  
+        GROUP BY AREA_CD
+            ,REGION_AREA
+            ,PROD_ID
+)TA,CD_TBL TB
+WHERE TA.AREA_CD = TB.CD_ID
+GROUP BY ROLLUP(AREA_CD , REGION_AREA)
+)
+WHERE GK = NVL(]]>#{param2,jdbcType=VARCHAR}<![CDATA[ ,GK)
+ORDER BY AREA_CD,DECODE(]]>#{param11,jdbcType=VARCHAR}<![CDATA[,'R',-1,1)*TO_NUMBER(GK)]]>
+		
+</select>
+	
+	
+	<select id="listChartDao" resultType="com.javalec.springMybatis.dto.ChartDto">
+		<![CDATA[
+		SELECT NM,REGION_AREA
+		,DECODE(COL0,GREATE,COL0||'('||ROUND(COL0/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL0||'('||ROUND(COL0/TOT,4) *
+		100||'%'||')'||' ▼' ,COL0 || '('||ROUND(COL0/TOT,4) * 100||'%'||')')
+		COL0
+		,DECODE(COL1,GREATE,COL1||'('||ROUND(COL1/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL1||'('||ROUND(COL1/TOT,4) *
+		100||'%'||')'||' ▼' ,COL1 || '('||ROUND(COL1/TOT,4) * 100||'%'||')')
+		COL1
+		,DECODE(COL2,GREATE,COL2||'('||ROUND(COL2/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL2||'('||ROUND(COL2/TOT,4) *
+		100||'%'||')'||' ▼' ,COL2 || '('||ROUND(COL2/TOT,4) * 100||'%'||')')
+		COL2
+		,DECODE(COL3,GREATE,COL3||'('||ROUND(COL3/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL3||'('||ROUND(COL3/TOT,4) *
+		100||'%'||')'||' ▼' ,COL3 || '('||ROUND(COL3/TOT,4) * 100||'%'||')')
+		COL3
+		,DECODE(COL4,GREATE,COL4||'('||ROUND(COL4/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL4||'('||ROUND(COL4/TOT,4) *
+		100||'%'||')'||' ▼' ,COL4 || '('||ROUND(COL4/TOT,4) * 100||'%'||')')
+		COL4
+		,DECODE(COL5,GREATE,COL5||'('||ROUND(COL5/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL5||'('||ROUND(COL5/TOT,4) *
+		100||'%'||')'||' ▼' ,COL5 || '('||ROUND(COL5/TOT,4) * 100||'%'||')')
+		COL5
+		,DECODE(COL6,GREATE,COL6||'('||ROUND(COL6/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL6||'('||ROUND(COL6/TOT,4) *
+		100||'%'||')'||' ▼' ,COL6 || '('||ROUND(COL6/TOT,4) * 100||'%'||')')
+		COL6
+		,DECODE(COL7,GREATE,COL7||'('||ROUND(COL7/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL7||'('||ROUND(COL7/TOT,4) *
+		100||'%'||')'||' ▼' ,COL7 || '('||ROUND(COL7/TOT,4) * 100||'%'||')')
+		COL7
+		,DECODE(COL8,GREATE,COL8||'('||ROUND(COL8/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL8||'('||ROUND(COL8/TOT,4) *
+		100||'%'||')'||' ▼' ,COL8 || '('||ROUND(COL8/TOT,4) * 100||'%'||')')
+		COL8
+		,DECODE(COL9,GREATE,COL9||'('||ROUND(COL9/TOT,4) * 100||'%'||')'||' ▲' ,LEAST,COL9||'('||ROUND(COL9/TOT,4) *
+		100||'%'||')'||' ▼' ,COL9 || '('||ROUND(COL9/TOT,4) * 100||'%'||')')
+		COL9
+		,TOT
+		FROM(
+		SELECT --AREA_CD
+		DECODE(GROUPING(AREA_CD) || GROUPING(REGION_AREA),'00',MIN(CD_NM),'01',MIN(CD_NM)||'합계','총계')
+		NM
+		,REGION_AREA
+		,NVL(SUM(DECODE(PROD_ID,'100000',SALE_CNT)),0) COL0
+		,NVL(SUM(DECODE(PROD_ID,'100001',SALE_CNT)),0) COL1
+		,NVL(SUM(DECODE(PROD_ID,'100002',SALE_CNT)),0) COL2
+		,NVL(SUM(DECODE(PROD_ID,'100003',SALE_CNT)),0) COL3
+		,NVL(SUM(DECODE(PROD_ID,'100004',SALE_CNT)),0) COL4
+		,NVL(SUM(DECODE(PROD_ID,'100005',SALE_CNT)),0) COL5
+		,NVL(SUM(DECODE(PROD_ID,'100006',SALE_CNT)),0) COL6
+		,NVL(SUM(DECODE(PROD_ID,'100007',SALE_CNT)),0) COL7
+		,NVL(SUM(DECODE(PROD_ID,'100008',SALE_CNT)),0) COL8
+		,NVL(SUM(DECODE(PROD_ID,'100009',SALE_CNT)),0) COL9
+		,MAX(SALE_CNT) GREATE
+		,MIN(SALE_CNT) LEAST
+		,SUM(SALE_CNT) TOT
+		FROM(
+		SELECT AREA_CD
+		,REGION_AREA
+		,PROD_ID
+		,SUM(SALE_CNT) SALE_CNT
+		FROM SALE_TBL
+		WHERE ROWNUM <= 100000000
+		GROUP BY AREA_CD
+		,REGION_AREA
+		,PROD_ID
+		)TA,CD_TBL TB
+		WHERE TA.AREA_CD = TB.CD_ID
+		GROUP BY ROLLUP(AREA_CD , REGION_AREA)
+		)
+		]]> 
+
+	</select>
+	
+	
+</mapper>
